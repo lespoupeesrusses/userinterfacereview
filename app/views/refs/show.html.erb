@@ -1,0 +1,24 @@
+<div class="ref__show">
+  <div class="ref__show__media">
+    <% if @ref.image.attached? %>
+      <%= image_tag @ref.image, class: 'img-fluid' %>
+    <% end %>
+    <% if @ref.video.attached? %>
+      <%= video_tag url_for(@ref.video), controls: true, autoplay: true, class: 'img-fluid' %>
+    <% end %>
+  </div>
+  <div class="ref__show__data">
+    <h1><%= @ref.title %></h1>
+    <p><%= @ref.description %></p>
+    <p><%= @ref.keywords %></p>
+    <p><%= link_to @ref.url, @ref.url, target: :_blank %></p>
+  </div>
+  <div class="ref__show__meta">
+    <p>
+      Digged on <%= l @ref.created_at, format: '%d/%m/%Y' %><br/>
+      by <%= @ref.user %>
+    </p>
+    <%= link_to 'Edit', edit_ref_path(@ref), class: 'btn btn-light btn-sm' %>
+    <%= link_to 'Destroy', @ref, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-light btn-sm' %>
+  </div>
+</div>

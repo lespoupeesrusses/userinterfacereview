@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
-  post '' => 'application#receive'
-  root to: 'home#index'
+  devise_for :users
+  resources :refs
+  post 'extension' => 'extension#receive'
+  root to: 'refs#index'
 end

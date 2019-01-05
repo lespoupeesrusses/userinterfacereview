@@ -1,0 +1,72 @@
+$grid-gutter-width: 0
+@import 'bootstrap'
+@import url('https://fonts.googleapis.com/css?family=Arimo:400,700')
+*
+  font-family: 'Arimo', sans-serif
+  line-height: 160%
+  font-size: 14px
+h1
+  font-size: 14px
+  font-weight: 700
+body
+  padding-top: 130px
+nav
+  height: 130px
+  background: white
+  position: fixed
+  top: 0
+  right: 0
+  left: 0
+  z-index: 100
+  #logo
+    position: fixed
+    width: 100px
+    margin-left: -50px
+    top: 30px
+    left: 50%
+  #search
+    top: 40px
+    left: 30px
+    width: 200px
+    position: fixed
+    input
+      padding: 5px
+      font-size: 16px
+      width: 100%
+      border: none
+      border-bottom: 1px solid black
+  #plus
+    position: fixed
+    width: 20px
+    right: 45px
+    top: 50px
+    a
+      padding: 10px
+.ref
+  &__new, &__edit
+    margin: 0 30px 30px 30px
+  &__show
+    margin: 0 30px 30px 30px
+    &__media
+      margin-bottom: 30px
+    &__data
+      float: left
+    &__meta
+      color: #999
+      text-align: right
+  &__list
+    height: 12rem
+    overflow: hidden
+    &__data
+      position: absolute
+      top: 0
+      left: 0
+      bottom: 0
+      right: 0
+      padding: 10px 20px
+      background: rgba(0, 0, 0, 0.5)
+      display: none
+      &, a
+        color: white
+    &:hover .ref__list__data
+      display: block
