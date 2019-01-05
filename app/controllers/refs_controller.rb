@@ -2,7 +2,7 @@ class RefsController < ApplicationController
   before_action :set_ref, only: [:show, :edit, :update, :destroy]
 
   def index
-    @refs = Ref.all
+    @refs = Ref.ordered
     @search = params[:search]
     @refs = @refs.search(@search) unless @search.nil?
     @refs = @refs.page params[:page]

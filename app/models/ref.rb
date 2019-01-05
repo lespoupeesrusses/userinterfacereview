@@ -27,4 +27,5 @@ class Ref < ApplicationRecord
       "%#{search}%"
     )
   }
+  scope :ordered, -> { order(created_at: :desc) }
 end
