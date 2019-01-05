@@ -16,4 +16,15 @@ class Ref < ApplicationRecord
   belongs_to :user
   has_one_attached :image
   has_one_attached :video
+
+  scope :search, -> (search) { 
+    where(
+      'unaccent(title) ILIKE unaccent(?)
+      OR unaccent(description) ILIKE unaccent(?)
+      OR unaccent(keywords) ILIKE unaccent(?)',
+      "%#{search}%",
+      "%#{search}%",
+      "%#{search}%"
+    )
+  }
 end

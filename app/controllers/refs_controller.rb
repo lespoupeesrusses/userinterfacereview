@@ -1,31 +1,25 @@
 class RefsController < ApplicationController
   before_action :set_ref, only: [:show, :edit, :update, :destroy]
 
-  # GET /refs
-  # GET /refs.json
   def index
     @refs = Ref.all
+    @search = params[:search]
+    @refs = @refs.search(@search) unless @search.nil?
+    @refs = @refs.page params[:page]
   end
 
-  # GET /refs/1
-  # GET /refs/1.json
   def show
   end
 
-  # GET /refs/new
   def new
     @ref = Ref.new
   end
 
-  # GET /refs/1/edit
   def edit
   end
 
-  # POST /refs
-  # POST /refs.json
   def create
     @ref = Ref.new(ref_params)
-
     respond_to do |format|
       if @ref.save
         format.html { redirect_to @ref, notice: 'Ref was successfully created.' }
@@ -37,8 +31,6 @@ class RefsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /refs/1
-  # PATCH/PUT /refs/1.json
   def update
     respond_to do |format|
       if @ref.update(ref_params)
@@ -51,8 +43,6 @@ class RefsController < ApplicationController
     end
   end
 
-  # DELETE /refs/1
-  # DELETE /refs/1.json
   def destroy
     @ref.destroy
     respond_to do |format|
@@ -62,12 +52,11 @@ class RefsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
+
     def set_ref
       @ref = Ref.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def ref_params
       params
         .require(:ref).permit(:title, :description, :keywords, :url, :image, :video)

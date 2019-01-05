@@ -14,6 +14,7 @@ gem 'jbuilder'
 gem 'jquery-rails'
 gem 'open-iconic-rails'
 gem 'bootstrap'
+gem 'kaminari'
 gem 'bootsnap', '>= 1.1.0', require: false
 
 group :development, :test do

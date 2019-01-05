@@ -13,8 +13,8 @@
         <%= link_to image_tag('logo.svg'), root_path %>
       </div>
       <div id="search">
-        <form action="">
-          <input type="text" name="search" placeholder="Search" value="<%= params[:search] %>"/>
+        <form action="/">
+          <input type="text" name="search" placeholder="Search" value="<%= "#{@search}" %>"/>
         </form>
       </div>
       <div id="plus">
