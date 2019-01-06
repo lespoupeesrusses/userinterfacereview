@@ -1,6 +1,10 @@
 class ExtensionController < ApplicationController
   skip_before_action :verify_authenticity_token
 
+  def hello
+    render json: { user: "#{current_user}" }
+  end
+
   def receive
     return unless current_user
     @ref = Ref.new  user: current_user,
