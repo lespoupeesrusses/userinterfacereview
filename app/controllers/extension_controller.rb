@@ -3,8 +3,11 @@ class ExtensionController < ApplicationController
 
   def receive
     return unless current_user
-    @ref = Ref.new user: current_user
-    # TODO title, url, description, keywords
+    @ref = Ref.new  user: current_user,
+                    title: params[:title],
+                    url: params[:url],
+                    description: params[:description],
+                    keywords: params[:keywords]
     data = request.raw_post
     image_prefix = 'data:image/png;base64,'
     if data.start_with? image_prefix
@@ -13,8 +16,8 @@ class ExtensionController < ApplicationController
       io = StringIO.new image_data
       @ref.image.attach(io: io, filename: "screenshot.png", content_type: "image/png")
     else
-      file = "tmp/video-#{DateTime.now.to_i}.webm"
-      File.open(file, 'w:ASCII-8BIT') { |file| file.write(data) }
+      io = StringIO.new data, 'rb'
+      @ref.video.attach(io: io, filename: "screencast.webm", content_type: "video/webm")
     end
     @ref.save
   end
