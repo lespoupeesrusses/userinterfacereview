@@ -10,16 +10,17 @@ h1
   font-weight: 700
 body
   padding-top: 130px
+  background: #f0f0f9
 nav
   height: 130px
   background: white
-  position: fixed
+  position: absolute
   top: 0
   right: 0
   left: 0
   z-index: 100
   #logo
-    position: fixed
+    position: absolute
     width: 100px
     margin-left: -50px
     top: 30px
@@ -28,7 +29,7 @@ nav
     top: 40px
     left: 30px
     width: 200px
-    position: fixed
+    position: absolute
     input
       padding: 5px
       font-size: 16px
@@ -36,21 +37,21 @@ nav
       border: none
       border-bottom: 1px solid black
   #plus
-    position: fixed
+    position: absolute
     width: 20px
     right: 45px
     top: 50px
     a
       padding: 10px
 .ref
-  &__new, &__edit
-    margin: 0 30px 30px 30px
+  &__new, &__edit, &__show
+    margin: 30px
   &__show
-    margin: 0 30px 30px 30px
     &__media
       margin-bottom: 30px
     &__data
       float: left
+      max-width: 600px
     &__meta
       color: #999
       text-align: right
