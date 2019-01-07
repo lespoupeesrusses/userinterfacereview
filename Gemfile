@@ -17,6 +17,7 @@ gem 'open-iconic-rails'
 gem 'bootstrap'
 gem 'kaminari'
 gem 'mini_magick'
+gem 'aws-sdk-s3'
 gem 'bootsnap', '>= 1.1.0', require: false
 
 group :development, :test do
