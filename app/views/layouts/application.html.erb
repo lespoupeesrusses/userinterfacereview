@@ -24,7 +24,7 @@
     </nav>
     <div class="container-fluid">
       <%= yield %>
-      <footer>
+      <footer class="clear">
         <br/>
         <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: 'btn btn-light' %>
       </footer>
