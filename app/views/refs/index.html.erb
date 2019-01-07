@@ -14,7 +14,6 @@
           <div class="ref__list__data">
             <%= link_to 'Site', ref.url, class: 'btn btn-light btn-sm float-right', target: :_blank unless ref.url.nil? %>
             <h1><%= ref.title %></h1>
-            <% unless ref.description.blank? %><p><%= ref.description %></p><% end %>
             <% unless ref.keywords.blank? %><p><%= ref.keywords %></p><% end %>
           </div>
         <% end %>
