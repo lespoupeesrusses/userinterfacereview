@@ -1,4 +1,3 @@
-$grid-gutter-width: 0
 @import 'bootstrap'
 @import url('https://fonts.googleapis.com/css?family=Arimo:400,700')
 *
@@ -9,7 +8,9 @@ h1
   font-size: 14px
   font-weight: 700
 body
-  padding-top: 130px
+  padding-top: 160px
+  padding-left: 15px
+  padding-right: 15px
   background: #f0f0f9
 nav
   height: 130px
@@ -44,8 +45,6 @@ nav
     a
       padding: 10px
 .ref
-  &__new, &__edit, &__show
-    margin: 30px
   &__show
     &__media
       margin-bottom: 30px
@@ -56,21 +55,12 @@ nav
       color: #999
       text-align: right
   &__list
-    height: 12rem
-    overflow: hidden
+    height: 14rem
+    &__media
+      height: 12rem
+      overflow: hidden
     &__data
-      position: absolute
-      top: 0
-      left: 0
-      bottom: 0
-      right: 0
-      padding: 10px 20px
-      background: rgba(0, 0, 0, 0.5)
-      display: none
-      &, a
-        color: white
-    &:hover .ref__list__data
-      display: block
+      padding-top: 5px
 .devise
   padding: 30px
   max-width: 300px

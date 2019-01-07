@@ -22,9 +22,12 @@
         <%= link_to open_iconic(:icon, :plus), new_ref_path %>
       </div>
     </nav>
-    <%= yield %>
-    <footer>
-      <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: 'btn btn-light' %>
-    </footer>
+    <div class="container-fluid">
+      <%= yield %>
+      <footer>
+        <br/>
+        <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: 'btn btn-light' %>
+      </footer>
+    </div>
   </body>
 </html>
