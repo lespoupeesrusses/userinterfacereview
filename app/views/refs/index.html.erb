@@ -7,7 +7,7 @@
             <%= image_tag ref.image.variant(resize: "512"), class: 'img-fluid' %>
           <% end %>
           <% if ref.video.attached? %>
-            <%#= image_tag ref.video.preview(resize: "512x288"), class: 'img-fluid' %>
+            <%= image_tag ref.video.preview(resize: "512x288"), class: 'img-fluid' %>
           <% end %>
         </div>
         <% unless @live %>
