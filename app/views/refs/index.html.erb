@@ -24,3 +24,11 @@
   <% end %>
 </div>
 <%= paginate @refs %>
+
+<% if @live %>
+  <script type="text/javascript">
+    setTimeout(function(){
+      window.location.reload(1);
+    }, 60000);
+  </script>
+<% end %>
