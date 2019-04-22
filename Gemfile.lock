@@ -261,7 +261,7 @@ DEPENDENCIES
   open-iconic-rails
   pg (>= 0.18, < 2.0)
   puma
-  rails (~> 5.2.2)
+  rails (~> 5.2.3)
   sassc-rails
   selenium-webdriver
   simple_form
