@@ -8,10 +8,10 @@ local:
 
 amazon:
   service: S3
-  access_key_id: AKIAJ2QUNMO2VB7DDRGQ
-  secret_access_key: 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
-  region: eu-west-1
-  bucket: lpr-dig
+  access_key_id: <%= ENV['AWS_KEY'] %>
+  secret_access_key: <%= ENV['AWS_SECRET'] %>
+  region: <%= ENV['AWS_REGION'] %>
+  bucket: <%= ENV['AWS_BUCKET'] %>
 
 # Remember not to checkin your GCS keyfile to a repository
 # google:
