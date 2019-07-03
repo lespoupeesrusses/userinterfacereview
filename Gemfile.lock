@@ -69,9 +69,10 @@ GEM
     bindex (0.7.0)
     bootsnap (1.4.3)
       msgpack (~> 1.0)
-    bootstrap-sass (3.4.1)
-      autoprefixer-rails (>= 5.2.1)
-      sassc (>= 2.0.0)
+    bootstrap (4.3.1)
+      autoprefixer-rails (>= 9.1.0)
+      popper_js (>= 1.14.3, < 2)
+      sassc-rails (>= 2.0.0)
     builder (3.2.3)
     byebug (11.0.1)
     capybara (3.17.0)
@@ -151,6 +152,7 @@ GEM
       rails (>= 3.1)
     orm_adapter (0.5.0)
     pg (1.1.4)
+    popper_js (1.14.5)
     public_suffix (3.0.3)
     puma (3.12.1)
     rack (2.0.7)
@@ -243,7 +245,7 @@ PLATFORMS
 DEPENDENCIES
   aws-sdk-s3
   bootsnap (>= 1.1.0)
-  bootstrap-sass
+  bootstrap
   byebug
   capybara (>= 2.15)
   chromedriver-helper
