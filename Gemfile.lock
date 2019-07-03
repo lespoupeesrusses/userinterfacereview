@@ -261,7 +261,7 @@ DEPENDENCIES
   open-iconic-rails
   pg (>= 0.18, < 2.0)
   puma
-  rails (~> 5.2.3)
+  rails (~> 5)
   sassc-rails
   selenium-webdriver
   simple_form
@@ -272,7 +272,7 @@ DEPENDENCIES
   web-console (>= 3.3.0)
 
 RUBY VERSION
-   ruby 2.5.1p57
+   ruby 2.6.2p47
 
 BUNDLED WITH
-   1.17.2
+   1.17.3
