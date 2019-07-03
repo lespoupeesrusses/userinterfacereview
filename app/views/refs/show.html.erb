@@ -16,7 +16,7 @@
   <div class="ref__show__meta">
     <p>
       Referenced on <%= l @ref.created_at, format: '%d/%m/%Y' %><br/>
-      by <%= @ref.user %>
+      by <%= link_to @ref.user, @ref.user %>
     </p>
     <%= link_to 'Edit', edit_ref_path(@ref), class: 'btn btn-light btn-sm' %>
     <%= link_to 'Destroy', @ref, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-light btn-sm' %>
