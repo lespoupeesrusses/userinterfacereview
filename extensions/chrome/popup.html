@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+  <html>
+    <head>
+        <style type="text/css">
+            body {
+                width: 300px;
+                padding-top: 15px;
+                padding-bottom: 15px;
+            }
+            #logo {
+                margin: 30px auto;
+                width: 60px;
+                display: block;
+            }
+            #logged {
+                display: none;
+            }
+        </style>
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+    </head>
+    <body>
+        <a href="https://www.userinterface.review" target="_blank">
+            <img id="logo" src="images/logo.svg" alt="User Interface Review" />
+        </a>
+        <div class="container">
+            <div id="logged">
+                <p class="small muted text-center" id="user"></p>
+                <textarea id="keywords" class="form-control" placeholder="Type keywords here"></textarea><br/>
+                <button id="videoCapture" class="btn btn-primary btn-block">Capture video</button>
+                <button id="stop" class="btn btn-primary btn-block">Stop</button>
+                <button id="image" class="btn btn-primary btn-block">Capture image</button>
+            </div>
+            <div id="unlogged">
+                <p class="small muted text-center">
+                  <a href="https://www.userinterface.review" target="_blank">Please sign in</a>
+                </p>
+            </div>
+        </div>
+        <script src="js/popup.js"></script>
+    </body>
+  </html>
