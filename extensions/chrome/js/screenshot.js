@@ -63,7 +63,11 @@ uir.record = function (stream) {
         uir.data.push(event.data);
     };
     this.recorder.onstop = function (event) {
-        uir.blob = new Blob(uir.data, {type: "video/webm"});
+        uir.blob = new Blob(uir.data, {
+            audioBitsPerSecond : 128000,
+            videoBitsPerSecond : 2500000,
+            type: 'video/mp4'
+        });
         uir.send(uir.blob);
     };
     this.recorder.start();

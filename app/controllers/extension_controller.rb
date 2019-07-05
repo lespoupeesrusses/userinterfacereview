@@ -18,10 +18,10 @@ class ExtensionController < ApplicationController
       data_without_prefix = data[image_prefix.length .. -1]
       image_data = Base64.decode64 data_without_prefix
       io = StringIO.new image_data
-      @ref.image.attach(io: io, filename: "screenshot.png", content_type: "image/png")
+      @ref.image.attach(io: io, filename: 'screenshot.png', content_type: 'image/png')
     else
       io = StringIO.new data, 'rb'
-      @ref.video.attach(io: io, filename: "screencast.webm", content_type: "video/webm")
+      @ref.video.attach(io: io, filename: 'screencast.mp4', content_type: 'video/mp4')
     end
     @ref.save
   end
