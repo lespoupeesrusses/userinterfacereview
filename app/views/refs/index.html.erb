@@ -1,15 +1,20 @@
-<div class="row">
+<div class="refs">
   <% @refs.each do |ref| %>
-    <div class="col-md-3 ref">
-      <%= link_to ref do %>
-        <%= image_tag ref.image.variant(resize: "512"), class: 'img-fluid' if ref.image.attached? %>
-        <%= video_tag url_for(ref.video), class: 'img-fluid' if ref.video.attached? %>
-          <div class="data">
-            <p><%= ref.title %></p>
-            <%= link_to 'Site', ref.url, class: 'btn btn-light btn-sm', target: :_blank unless ref.url.nil? %>
-            <% unless ref.keywords.blank? %><p><%= ref.keywords %></p><% end %>
-          </div>
-      <% end %>
+    <div class="ref">
+      <%
+      resize = '512'
+      if ref.video.attached?
+        thumb = ref.video.preview(resize: resize)
+      elsif ref.image.attached?
+        thumb = ref.image.variant(resize: resize)
+      end
+      %>
+      <%= image_tag thumb unless thumb.nil? %>
+      <div class="data">
+        <p><%= ref.title %></p>
+        <%= link_to 'Browse site', ref.url, target: :_blank unless ref.url.nil? %>
+        <% unless ref.keywords.blank? %><p><%= ref.keywords %></p><% end %>
+      </div>
     </div>
   <% end %>
 </div>

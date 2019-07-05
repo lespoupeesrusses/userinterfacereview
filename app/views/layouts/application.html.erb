@@ -24,12 +24,12 @@
         <%= link_to 'Add ref', new_ref_path %>
       </div>
     </nav>
-    <div class="container-fluid">
+    <main>
       <%= yield %>
-      <footer class="clear">
-        <br/>
-        <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: 'btn btn-light' %>
-      </footer>
-    </div>
+      </main>
+    <footer>
+      <br/>
+      <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: 'btn btn-sm' %>
+    </footer>
   </body>
 </html>

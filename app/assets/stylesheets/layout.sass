@@ -1,0 +1,45 @@
+body
+    background: black
+
+h1, h2, p, a
+    font-family: 'Roboto', sans-serif
+    color: white
+
+a
+    text-decoration: none
+    font-size: 11px
+
+nav
+    position: absolute
+    top: 0
+    z-index: 1
+    .logo
+        left: 20px
+        position: absolute
+        top: 20px
+        width: 100px
+    .search, .add
+        display: none
+
+.refs
+    column-count: 4
+    column-gap: 0
+    .ref
+        break-inside: avoid
+        margin-bottom: -3px
+        overflow: hidden
+        position: relative
+        img
+            max-width: 100%
+        .data
+            display: none
+            position: absolute
+            left: 0
+            top: 0
+            right: 0
+            bottom: 0
+            padding: 20px
+            text-align: right
+            background: rgba(0, 0, 0, 0.8)
+        &:hover .data
+            display: block
