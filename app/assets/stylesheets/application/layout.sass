@@ -10,14 +10,20 @@ h1, h2, p, a
 a
     text-decoration: none
 
-nav
-    position: absolute
-    top: 0
+.nav
+    position: fixed
     z-index: 1
-    .logo
+    &__logo
         left: 12px
-        position: absolute
+        position: fixed
         top: 20px
         width: 100px
-    .search, .add
+    &__search, &__add
         display: none
+
+.footer
+    padding: 20px
+    text-align: right
+    margin-top: 100px
+    a
+        color: #666666

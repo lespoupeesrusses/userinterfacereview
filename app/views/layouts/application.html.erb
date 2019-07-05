@@ -11,24 +11,23 @@
     <%= javascript_include_tag 'application' %>
   </head>
   <body>
-    <nav>
-      <div class="logo">
+    <nav class="nav">
+      <div class="nav__logo">
         <%= link_to image_tag('logo-white.svg'), root_path %>
       </div>
-      <div class="search">
+      <div class="nav__search">
         <form action="/">
           <input type="text" name="search" placeholder="Search" value="<%= "#{@search}" %>"/>
         </form>
       </div>
-      <div class="add">
+      <div class="nav__add">
         <%= link_to 'Add ref', new_ref_path %>
       </div>
     </nav>
     <main>
       <%= yield %>
       </main>
-    <footer>
-      <br/>
+    <footer class="footer">
       <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: 'btn btn-sm' %>
     </footer>
   </body>

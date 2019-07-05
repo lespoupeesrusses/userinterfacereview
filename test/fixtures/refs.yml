@@ -2,12 +2,12 @@
 #
 # Table name: refs
 #
-#  id          :bigint(8)        not null, primary key
+#  id          :bigint           not null, primary key
 #  title       :string
 #  description :text
 #  keywords    :text
 #  url         :string
-#  user_id     :bigint(8)
+#  user_id     :bigint
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #
