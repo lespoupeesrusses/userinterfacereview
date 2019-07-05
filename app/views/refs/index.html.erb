@@ -1,26 +1,16 @@
 <div class="row">
   <% @refs.each do |ref| %>
-    <div class="col-md-3">
+    <div class="col-md-3 ref">
       <%= link_to ref do %>
         <%= image_tag ref.image.variant(resize: "512"), class: 'img-fluid' if ref.image.attached? %>
         <%= video_tag url_for(ref.video), class: 'img-fluid' if ref.video.attached? %>
-        <% unless @live %>
-          <div class="ref__list__data">
-            <%= link_to 'Site', ref.url, class: 'btn btn-light btn-sm float-right', target: :_blank unless ref.url.nil? %>
+          <div class="data">
             <p><%= ref.title %></p>
+            <%= link_to 'Site', ref.url, class: 'btn btn-light btn-sm', target: :_blank unless ref.url.nil? %>
             <% unless ref.keywords.blank? %><p><%= ref.keywords %></p><% end %>
           </div>
-        <% end %>
       <% end %>
     </div>
   <% end %>
 </div>
 <%= paginate @refs %>
-
-<% if @live %>
-  <script type="text/javascript">
-    setTimeout(function(){
-      window.location.reload(1);
-    }, 60000);
-  </script>
-<% end %>

@@ -67,8 +67,6 @@ GEM
       aws-eventstream (~> 1.0, >= 1.0.2)
     bcrypt (3.1.12)
     bindex (0.7.0)
-    bootsnap (1.4.3)
-      msgpack (~> 1.0)
     bootstrap (4.3.1)
       autoprefixer-rails (>= 9.1.0)
       popper_js (>= 1.14.3, < 2)
@@ -143,7 +141,6 @@ GEM
     mini_mime (1.0.1)
     mini_portile2 (2.4.0)
     minitest (5.11.3)
-    msgpack (1.2.10)
     multi_json (1.13.1)
     nio4r (2.3.1)
     nokogiri (1.10.2)
@@ -207,11 +204,6 @@ GEM
     simple_form (4.1.0)
       actionpack (>= 5.0)
       activemodel (>= 5.0)
-    spring (2.0.2)
-      activesupport (>= 4.2)
-    spring-watcher-listen (2.0.1)
-      listen (>= 2.7, < 4.0)
-      spring (>= 1.2, < 3.0)
     sprockets (3.7.2)
       concurrent-ruby (~> 1.0)
       rack (> 1, < 3)
@@ -244,7 +236,6 @@ PLATFORMS
 
 DEPENDENCIES
   aws-sdk-s3
-  bootsnap (>= 1.1.0)
   bootstrap
   byebug
   capybara (>= 2.15)
@@ -263,8 +254,6 @@ DEPENDENCIES
   sassc-rails
   selenium-webdriver
   simple_form
-  spring
-  spring-watcher-listen (~> 2.0.0)
   tzinfo-data
   uglifier
   web-console (>= 3.3.0)

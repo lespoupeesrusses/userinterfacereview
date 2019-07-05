@@ -7,7 +7,6 @@ class RefsController < ApplicationController
     @search = params[:search]
     @refs = @refs.search(@search) unless @search.nil?
     @refs = @refs.page params[:page]
-    @live = params.has_key? :live
   end
 
   def show
