@@ -2,14 +2,19 @@ class ExtensionController < ApplicationController
   skip_before_action :verify_authenticity_token
 
   def hello
-    render json: {
-      user: "#{current_user}",
-      tags: Tag.all.map { |tag| {
-          id: tag.id,
-          title: tag.title
+    if current_user
+      data = {
+        user: "#{current_user}",
+        tags: Tag.all.map { |tag| {
+            id: tag.id,
+            title: tag.title
+          }
         }
       }
-    }
+    else
+      data = {}
+    end
+    render json: data
   end
 
   def receive
