@@ -30,8 +30,8 @@ window.uir = {
         }
     },
     request: {
-        // endpoint: 'https://www.userinterface.review/extension',
-        endpoint: 'http://localhost:3000/extension',
+        endpoint: 'https://www.userinterface.review/extension',
+        // endpoint: 'http://localhost:3000/extension',
         keywords: null,
         data: null,
         send: function (data) {
