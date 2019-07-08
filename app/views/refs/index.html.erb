@@ -1,13 +1,15 @@
 <div class="refs__index">
   <% @refs.each do |ref| %>
     <div class="ref">
-      <% if ref.video.attached? && ref.video.previewable? %>
-        <%= image_tag ref.video.preview(resize: '512') %>
-      <% elsif ref.video.attached? %>
-        <%= video_tag url_for(ref.video) %>
-      <% elsif ref.image.attached? %>
-        <%= image_tag ref.image.variant(resize: '512') %>
-      <% end %>
+      <div class="thumb">
+        <% if ref.video.attached? && ref.video.previewable? %>
+          <%= image_tag ref.video.preview(resize: '512') %>
+        <% elsif ref.video.attached? %>
+          <%= video_tag url_for(ref.video) %>
+        <% elsif ref.image.attached? %>
+          <%= image_tag ref.image.variant(resize: '512') %>
+        <% end %>
+      </div>
       <div class="data">
         <p><%= ref.title %></p>
         <%= link_to 'View', ref %><br/>

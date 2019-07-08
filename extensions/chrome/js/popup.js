@@ -1,6 +1,6 @@
 /*global chrome, window, URL */
 
-var test = function () {
+var uirPopup = function () {
     var xhr = new XMLHttpRequest();
     var url = chrome.extension.getBackgroundPage().uir.request.endpoint;
     xhr.open('GET', url, true);
@@ -17,11 +17,11 @@ var test = function () {
       }
     };
     xhr.send();
-}
+} 
 
 var refreshView = function () {
     "use strict";
-    if (chrome.extension.getBackgroundPage().uir.capturing) {
+    if (chrome.extension.getBackgroundPage().uir.video.capturing) {
         document.getElementById("keywords").style.display = 'none';
         document.getElementById("videoCapture").style.display = 'none';
         document.getElementById("stop").style.display = 'block';
@@ -43,26 +43,25 @@ var setKeywords = function () {
 document.getElementById("videoCapture").addEventListener('click', function () {
     "use strict";
     setKeywords();
-    chrome.extension.getBackgroundPage().uir.captureVideo();
+    chrome.extension.getBackgroundPage().uir.video.capture();
     window.close();
 });
 
 document.getElementById("stop").addEventListener('click', function () {
     "use strict";
-    chrome.extension.getBackgroundPage().uir.stop();
+    chrome.extension.getBackgroundPage().uir.video.stop();
     window.close();
 });
 
 document.getElementById("image").addEventListener('click', function () {
     "use strict";
     setKeywords();
-    chrome.extension.getBackgroundPage().uir.captureImage();
+    chrome.extension.getBackgroundPage().uir.image.capture();
     window.close();
 });
 
-
 window.onload = function () {
     "use strict";
-    test();
+    uirPopup();
     refreshView();
 };

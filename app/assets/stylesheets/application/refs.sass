@@ -3,12 +3,12 @@
         column-count: 4
         column-gap: 0
         .ref
-            break-inside: avoid
-            margin-bottom: -3px
             overflow: hidden
             position: relative
-            img, video
-                max-width: 100%
+            .thumb
+                img, video
+                    display: block
+                    max-width: 100%
             .data
                 display: none
                 position: absolute
@@ -22,6 +22,5 @@
             &:hover .data
                 display: block
     &__show
-        margin-top: 95px
         video, img
             max-width: 100%

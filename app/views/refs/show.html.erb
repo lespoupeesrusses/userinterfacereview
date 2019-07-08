@@ -4,7 +4,7 @@
       <%= image_tag @ref.image, class: 'img-fluid' %>
     <% end %>
     <% if @ref.video.attached? %>
-      <%= video_tag url_for(@ref.video), controls: true, autoplay: true, class: 'img-fluid' %>
+      <%= video_tag url_for(@ref.video), controls: true, autoplay: true, loop: true, class: 'img-fluid' %>
     <% end %>
   </div>
   <div class="refs__show__data">

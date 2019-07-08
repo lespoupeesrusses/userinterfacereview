@@ -2,7 +2,14 @@ class ExtensionController < ApplicationController
   skip_before_action :verify_authenticity_token
 
   def hello
-    render json: { user: "#{current_user}" }
+    render json: {
+      user: "#{current_user}",
+      tags: Tag.all.map { |tag| {
+          id: tag.id,
+          title: tag.title
+        }
+      }
+    }
   end
 
   def receive
@@ -21,7 +28,7 @@ class ExtensionController < ApplicationController
       @ref.image.attach(io: io, filename: 'screenshot.png', content_type: 'image/png')
     else
       io = StringIO.new data, 'rb'
-      @ref.video.attach(io: io, filename: 'screencast.mp4', content_type: 'video/mp4')
+      @ref.video.attach(io: io, filename: 'screencast.webm', content_type: 'video/webm')
     end
     @ref.save
   end
