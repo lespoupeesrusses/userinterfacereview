@@ -9,7 +9,7 @@
   </div>
   <div class="refs__show__data">
     <h1><%= @ref.title %></h1>
-    <p><%= @ref.description %></p>
+    <p><%= @ref.description unless @ref.description.blank? %></p>
     <p><%= @ref.keywords %></p>
     <p><%= link_to @ref.url, @ref.url, target: :_blank %></p>
   </div>
