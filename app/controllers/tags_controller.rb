@@ -1,5 +1,6 @@
 class TagsController < ApplicationController
   before_action :set_tag, only: [:show, :edit, :update, :destroy]
+  before_action :restrict_to_admin, except: [:index, :show]
 
   # GET /tags
   # GET /tags.json
@@ -63,7 +64,11 @@ class TagsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
+
+    def restrict_to_admin
+      not_found unless current_user&.admin
+    end
+
     def set_tag
       @tag = Tag.find(params[:id])
     end

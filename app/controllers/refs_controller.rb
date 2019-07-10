@@ -1,6 +1,7 @@
 class RefsController < ApplicationController
   before_action :set_ref, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, except: [:index, :show]
+  before_action :restrict_to_current_user, only: [:edit, :create, :update, :destroy]
 
   def index
     @refs = Ref.ordered
@@ -54,13 +55,17 @@ class RefsController < ApplicationController
 
   private
 
+    def restrict_to_current_user
+      not_found unless @ref.user == current_user
+    end
+
     def set_ref
       @ref = Ref.find(params[:id])
     end
 
     def ref_params
       params
-        .require(:ref).permit(:title, :description, :keywords, :url, :image, :video)
+        .require(:ref).permit(:title, :description, :keywords, :url, :image, :video, tag_ids: [])
         .merge(user_id: current_user.id)
     end
 end

@@ -1,8 +1,7 @@
 Rails.application.routes.draw do
-  resources :tags
   devise_for :users
-  resources :users, only: [:index, :show]
-  resources :refs
+  resources :users, except: [:new, :create]
+  resources :refs, :tags
   get 'extension' => 'extension#hello'
   post 'extension' => 'extension#receive'
   root to: 'refs#index'

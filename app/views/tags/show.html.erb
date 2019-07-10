@@ -1,6 +1,12 @@
 <div class="tags__show">
   <h1><%= @tag.title %></h1>
-  <div class="row">
+  <% if current_user&.admin %>
+    <div>
+      <%= link_to 'Edit', edit_tag_path(@tag), class: 'btn btn-primary btn-sm' %>
+      <%= link_to 'Destroy', @tag, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-sm' %>
+    </div>
+  <% end %>
+  <div class="row mt-3">
     <% @refs.each do |ref| %>
       <div class="col-md-3">
         <%= render ref %>

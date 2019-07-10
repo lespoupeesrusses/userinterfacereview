@@ -1,8 +1,14 @@
 <%= simple_form_for ref do |f| %>
   <div class="row">
     <div class="col-md-5">
-      <%= f.input :image %>
-      <%= f.input :video %>
+      <% if ref.new_record? %>
+        <%= f.input :image %>
+        <%= f.input :video %>
+      <% else %>
+        <%= f.input :image, hint: ref.image.filename.to_s if ref.image.attached? %>
+        <%= f.input :video, hint: ref.video.filename.to_s if ref.video.attached? %>
+      <% end %>
+      <%= f.association :tags, as: :check_boxes %>
     </div>
     <div class="col-md-6 offset-md-1">
       <%= f.input :title %>

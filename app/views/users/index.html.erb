@@ -2,6 +2,13 @@
 
 <ul class="list-unstyled">
   <% @users.each do |user| %>
-    <li><%= link_to user, user %></li>
+    <li>
+      <%= link_to user do %>
+        <h2>
+          <%= user %>
+          <span class="badge badge-primary"><%= user.refs.count %></span>
+        </h2>
+      <% end %>
+    </li>
   <% end %>
 </ul>

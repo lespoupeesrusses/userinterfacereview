@@ -10,6 +10,9 @@
 #  remember_created_at    :datetime
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
+#  first_name             :string
+#  last_name              :string
+#  admin                  :boolean          default(FALSE)
 #
 
 class User < ApplicationRecord
@@ -21,6 +24,7 @@ class User < ApplicationRecord
   has_many :refs
 
   def to_s
-    "#{email}"
+    (first_name.blank? && last_name.blank?) ? "#{email}"
+                                            : "#{first_name} #{last_name}"
   end
 end
