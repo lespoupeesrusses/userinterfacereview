@@ -10,6 +10,7 @@ class TagsController < ApplicationController
   # GET /tags/1
   # GET /tags/1.json
   def show
+    @refs = @tag.refs.page params[:page]
   end
 
   # GET /tags/new

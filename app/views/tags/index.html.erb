@@ -1,7 +1,15 @@
 <div class="tags__index">
-  <ul>
+  <h1>Tags</h1>
+  <ul class="list-unstyled list-inline">
     <% @tags.each do |tag| %>
-      <li><%= link_to tag, tag %></li>
+      <li>
+        <%= link_to tag do %>
+        <h2>
+          <%= tag %>
+          <span class="badge badge-primary"><%= tag.refs.count %></span>
+        </h2>
+        <% end %>
+      </li>
     <% end %>
   </ul>
 </div>

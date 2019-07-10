@@ -1,3 +1,11 @@
 <div class="tags__show">
   <h1><%= @tag.title %></h1>
+  <div class="row">
+    <% @refs.each do |ref| %>
+      <div class="col-md-3">
+        <%= render ref %>
+      </div>
+    <% end %>
+  </div>
+  <%= paginate @refs %>
 </div>

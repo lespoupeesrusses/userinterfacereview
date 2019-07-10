@@ -1,24 +1,47 @@
 body
     background: #FBFBFC
 
-h1, h2, p, a
+*
     font-family: 'Roboto', sans-serif
+
+h1, h2, p
     line-height: 160%
-    font-size: 12px
+
+h1
+    margin-bottom: 45px
 
 a
+    font-size: 12px
     text-decoration: none
 
-.nav
-    &__logo
+input[type=text],
+input[type=email],
+input[type=password]
+    padding: 3px
+    background: none
+    border: none
+    border-bottom: 1px solid #CCCCCC
+    font-size: 11px
+    width: 200px
+    &:focus
+        outline: none
+
+
+nav
+    height: 240px
+    .logo
+        position: absolute
         width: 100px
-        margin: 80px auto
-    &__search, &__add
-        display: none
+        left: 50%
+        margin-left: -50px
+        margin-top: 80px
+    .menu
+        li a
+            padding: 10px 0
+            font-size: 11px
+            text-transform: uppercase
 
 .footer
-    padding: 20px
     text-align: right
     margin-top: 100px
-    a
-        color: #666666
+    margin-bottom: 50px

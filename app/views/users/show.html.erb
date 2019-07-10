@@ -1,22 +1,8 @@
 <h1><%= @user %></h1>
 <div class="row">
   <% @refs.each do |ref| %>
-    <div class="col-md-3 ref__list">
-      <%= link_to ref do %>
-        <div class="ref__list__media">
-          <% if ref.image.attached? %>
-            <%= image_tag ref.image.variant(resize: "512"), class: 'img-fluid' %>
-          <% end %>
-          <% if ref.video.attached? %>
-            <%= video_tag url_for(ref.video), class: 'img-fluid' %>
-          <% end %>
-        </div>
-        <div class="ref__list__data">
-          <%= link_to 'Site', ref.url, class: 'btn btn-light btn-sm float-right', target: :_blank unless ref.url.nil? %>
-          <h1><%= ref.title %></h1>
-          <% unless ref.keywords.blank? %><p><%= ref.keywords %></p><% end %>
-        </div>
-      <% end %>
+    <div class="col-md-3">
+      <%= render ref %>
     </div>
   <% end %>
 </div>

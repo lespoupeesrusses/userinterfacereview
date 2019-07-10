@@ -14,10 +14,11 @@
 
 class Ref < ApplicationRecord
   belongs_to :user
+  has_and_belongs_to_many :tags
   has_one_attached :image
   has_one_attached :video
 
-  scope :search, -> (search) { 
+  scope :search, -> (search) {
     where(
       'unaccent(title) ILIKE unaccent(?)
       OR unaccent(description) ILIKE unaccent(?)
@@ -28,4 +29,8 @@ class Ref < ApplicationRecord
     )
   }
   scope :ordered, -> { order(created_at: :desc) }
+
+  def to_s
+    "#{title}"
+  end
 end
