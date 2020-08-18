@@ -1,0 +1,10 @@
+<footer class="footer">
+  <% if current_user %>
+    <%= link_to current_user, current_user %>
+    <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: 'btn btn-sm btn-primary' %>
+  <% else %>
+    <%= link_to 'Sign in', user_session_path %>
+    <%= link_to 'Sign up', user_registration_path %>
+  <% end %>
+  <%= link_to 'Download the extension', 'https://chrome.google.com/webstore/detail/user-interface-review/ggamhdhniebijeidkcgljolffpkeifai', target: :_blank %>
+</footer>

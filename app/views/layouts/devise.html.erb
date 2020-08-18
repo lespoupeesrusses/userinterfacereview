@@ -3,7 +3,11 @@
   <%= render 'head' %>
   <body>
     <%= render 'nav' %>
-    <main><%= yield %></main>
+    <main class="row">
+      <div class="offset-md-4 col-md-4">
+        <%= yield %>
+      </div>
+    </main>
     <%= render 'footer' %>
   </body>
 </html>

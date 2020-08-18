@@ -1,6 +1,6 @@
 <%= link_to ref do %>
   <article class="ref">
-    <div class="thumb">
+    <div class="ref__thumb">
       <% if ref.video.attached? && ref.video.previewable? %>
         <%= image_tag ref.video.preview(resize: '512'), class: 'img-fluid' %>
       <% elsif ref.video.attached? %>
@@ -9,8 +9,8 @@
         <%= image_tag ref.image.variant(resize: '512'), class: 'img-fluid' %>
       <% end %>
     </div>
-    <div class="data">
-      <p><%= ref.title %></p>
+    <div class="ref__data">
+      <p class="ref__data__title"><%= ref.title %></p>
     </div>
   </article>
 <% end %>

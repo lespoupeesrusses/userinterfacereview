@@ -1,0 +1,17 @@
+<nav class="nav">
+  <div class="nav__logo">
+    <%= link_to image_tag('logo-white.svg'), root_path %>
+  </div>
+  <div class="nav__menu">
+    <ul>
+      <li><%= link_to 'Refs', refs_path %></li>
+      <li><%= link_to 'Tags', tags_path %></li>
+      <li><%= link_to 'Users', users_path %></li>
+    </ul>
+  </div>
+  <div class="nav__search">
+    <form action="/">
+      <input type="text" name="search" placeholder="SEARCH" value="<%= "#{@search}" %>"/>
+    </form>
+  </div>
+</nav>

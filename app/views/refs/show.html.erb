@@ -1,31 +1,38 @@
 <% content_for :title, @ref %>
-<div class="refs__show">
-  <div class="refs__show__media">
-    <% if @ref.image.attached? %>
-      <%= image_tag @ref.image, class: 'img-fluid' %>
+<h1><%= @ref.title %></h1>
+<%= image_tag @ref.image, class: 'img-fluid' if @ref.image.attached? %>
+<%= video_tag url_for(@ref.video), controls: true, autoplay: true, loop: true, class: 'img-fluid' if @ref.video.attached? %>
+
+<div class="row mt-5">
+  <div class="offset-md-1 col-md-3">
+    <% unless @ref.description.blank? || @ref.description == 'null' %>
+      <p><%= @ref.description %></p>
     <% end %>
-    <% if @ref.video.attached? %>
-      <%= video_tag url_for(@ref.video), controls: true, autoplay: true, loop: true, class: 'img-fluid' %>
-    <% end %>
-  </div>
-  <div class="refs__show__data">
-    <h1><%= @ref.title %></h1>
-    <p><%= @ref.description unless @ref.description.blank? %></p>
     <p><%= @ref.keywords %></p>
     <p><%= link_to @ref.url, @ref.url, target: :_blank %></p>
   </div>
-  <div class="refs__show__meta">
+  <div class="offset-md-1 col-md-3">
     <p>
       Referenced on <%= l @ref.created_at, format: '%d/%m/%Y' %><br/>
       by <%= link_to @ref.user, @ref.user %>
     </p>
+  </div>
+  <div class="offset-md-1 col-md-3">
+    <p>Tags</p>
+    <ul class="list-inline">
+      <% @ref.tags.each do |tag| %>
+      <li><%= link_to tag, tag %></li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+<div class="refs__show">
+  <div class="refs__show__media">
+  </div>
+  <div class="refs__show__data">
+  </div>
+  <div class="refs__show__meta">
     <div>
-      <p>Tags</p>
-      <ul class="list-inline">
-        <% @ref.tags.each do |tag| %>
-        <li><%= link_to tag, tag %></li>
-        <% end %>
-      </ul>
     </div>
     <% if @ref.user == current_user %>
       <%= link_to 'Edit', edit_ref_path(@ref), class: 'btn btn-primary btn-sm' %>
