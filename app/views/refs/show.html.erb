@@ -14,7 +14,11 @@
   <div class="offset-md-1 col-md-3">
     <p>
       Referenced on <%= l @ref.created_at, format: '%d/%m/%Y' %><br/>
-      by <%= link_to @ref.user, @ref.user %>
+      by <%= link_to @ref.user, @ref.user %><br/>
+      <% if @ref.user == current_user %>
+        <%= link_to 'Edit', edit_ref_path(@ref) %>
+        <%= link_to 'Destroy', @ref, method: :delete, data: { confirm: 'Are you sure?' } %>
+      <% end %>
     </p>
   </div>
   <div class="offset-md-1 col-md-3">
@@ -26,7 +30,3 @@
     </ul>
   </div>
 </div>
-<% if @ref.user == current_user %>
-  <%= link_to 'Edit', edit_ref_path(@ref) %>
-  <%= link_to 'Destroy', @ref, method: :delete, data: { confirm: 'Are you sure?' } %>
-<% end %>
