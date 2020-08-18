@@ -26,17 +26,7 @@
     </ul>
   </div>
 </div>
-<div class="refs__show">
-  <div class="refs__show__media">
-  </div>
-  <div class="refs__show__data">
-  </div>
-  <div class="refs__show__meta">
-    <div>
-    </div>
-    <% if @ref.user == current_user %>
-      <%= link_to 'Edit', edit_ref_path(@ref), class: 'btn btn-primary btn-sm' %>
-      <%= link_to 'Destroy', @ref, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-sm' %>
-    <% end %>
-  </div>
-</div>
+<% if @ref.user == current_user %>
+  <%= link_to 'Edit', edit_ref_path(@ref) %>
+  <%= link_to 'Destroy', @ref, method: :delete, data: { confirm: 'Are you sure?' } %>
+<% end %>
